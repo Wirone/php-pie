@@ -29,6 +29,20 @@ system:
 sudo curl -L --output /usr/local/bin/pie https://github.com/php/pie/releases/latest/download/pie.phar && sudo chmod +x /usr/local/bin/pie
 ```
 
+### Docker installation
+
+Pie is published as binary-only Docker image, so you can install it easily during build:
+
+```Dockerfile
+FROM php:8
+
+COPY --form=ghcr.io/php/pie:latest /pie /usr/bin/pie
+```
+
+Instead of `latest` you can also use explicit versions like `x.y.z`, `x.y` or `x`, depending on stability level you want to achieve.
+
+Each image contains `/pie.asc` file too, so you can verify GPG signature of bundled PHAR file (`/pie`).
+
 ## Prerequisites for PIE
 
 Running PIE requires PHP 8.1 or newer. However, you may still use PIE to install
