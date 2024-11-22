@@ -50,6 +50,11 @@ jobs:
           files: |
             pie.phar
             pie.phar.asc
+      - name: Store PHAR as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: phar-binary
+          path: pie.phar
 
   docker-binary-only-image:
     needs: release-phar
@@ -64,6 +69,11 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Restore built PHAR
+        uses: actions/download-artifact@v4
+        with:
+          name: phar-binary
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
