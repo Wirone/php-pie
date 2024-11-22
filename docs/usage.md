@@ -31,11 +31,9 @@ sudo curl -L --output /usr/local/bin/pie https://github.com/php/pie/releases/lat
 
 ### Docker installation
 
-PIE is published as binary-only Docker image, so you can install it easily during build:
+PIE is published as binary-only Docker image, so you can install it easily during your Docker build:
 
 ```Dockerfile
-FROM php:8
-
 COPY --form=ghcr.io/php/pie:latest /pie /usr/bin/pie
 ```
 
