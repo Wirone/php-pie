@@ -39,7 +39,7 @@ COPY --form=ghcr.io/php/pie:latest /pie /usr/bin/pie
 
 Instead of `latest` you can also use explicit versions like `x.y.z`, `x.y` or `x`, depending on stability level you want to achieve.
 
-Each image contains `/pie.asc` file too, so you can verify GPG signature of bundled PHAR file (`/pie`).
+If you want to verify signature of the PHAR, you need to additionally download `*.asc` file from [corresponding release](https://github.com/php/pie/releases).
 
 ## Prerequisites for PIE
 
